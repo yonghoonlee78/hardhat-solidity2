@@ -1,10 +1,7 @@
-
-
 require("dotenv").config();
 const hre = require("hardhat");
 const { toUtf8Bytes } = require("ethers");
 
-// ✅ 최신 배포 주소를 이곳에 반영
 const addresses = {
   StringCopy: "0x4c571f5d4EF9c8278547C4Ab07356C723D127808",
   ArrayCopy: "0xc4b9D9DDCc24417afe19F2710506cee649334Fb2",
@@ -18,7 +15,7 @@ async function main() {
   console.log("Using signer:", signer.address);
 
   const StringCopy = await hre.ethers.getContractAt("StringCopy", addresses.StringCopy, signer);
-  await (await StringCopy.setString("Hello, Copy!"))?.wait();
+  await (await StringCopy.setString("Hello, Etherscan!"))?.wait();
   console.log("StringCopy greeting →", await StringCopy.getString());
 
   const ArrayCopy = await hre.ethers.getContractAt("ArrayCopy", addresses.ArrayCopy, signer);
